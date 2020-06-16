@@ -87,6 +87,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'lervag/vimtex'
 " Group dependencies, vim-snippets depends on ultisnips
 Plug 'sirver/ultisnips' | Plug 'honza/vim-snippets'
+" 目录插件
+Plug 'scrooloose/nerdtree'
+" 自动补全冒号、括号
+Plug 'Raimondi/delimitMate'
+" 注释
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 " ================================================================
@@ -107,3 +113,13 @@ let g:tex_conceal='abdmg'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+" ----------------------------------------------------------------
+" NERDTree
+" ----------------------------------------------------------------
+" 显示隐藏文件
+let NERDTreeShowHidden=1
+" 在 vim 启动的时候默认开启 NERDTree（autocmd 可以缩写为 au）
+autocmd VimEnter * NERDTree
+" 按下 ctrl + n 调出/隐藏 NERDTree
+map <c-n> :NERDTreeToggle<CR>
